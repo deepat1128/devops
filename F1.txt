@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if  
+
+file exists 
+print file exist 
+
+else
+print 
+file does not exist
