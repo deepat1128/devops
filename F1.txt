@@ -1,7 +1,17 @@
 #!/bin/bash
+
+
+if  
+
+file exists 
+print file exist 
+
+else
+print 
+file does not exist
 good morning
 mem=$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2}')
-echo "Current Memory Usage: $mem"
+echo "Current Memory Usage: $mem " deepa 
 --------------------------------------------------------------
 
 2:new line user1F1
@@ -13,3 +23,4 @@ print file exist
 else
 print 
 file does not exist
+
