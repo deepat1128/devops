@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mem=$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2}')
-echo "Current Memory Usage: $mem"
+echo "Current Memory Usage: $mem " deepa 
 --------------------------------------------------------------
 
 2:new line user1F1
