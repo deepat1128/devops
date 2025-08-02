@@ -1,0 +1,1332 @@
+Authenticating with public key "Imported-Openssh-Key"
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v25.2 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ⮞ SSH session to deepa@172.167.11.246                                │
+    │   • Direct SSH      :  ✓                                             │
+    │   • SSH compression :  ✓                                             │
+    │   • SSH-browser     :  ✓                                             │
+    │   • X11-forwarding  :  ✓  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ⮞ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.11.0-1018-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Sat Aug  2 09:29:22 UTC 2025
+
+  System load:  0.15               Processes:             153
+  Usage of /:   11.2% of 28.02GB   Users logged in:       0
+  Memory usage: 4%                 IPv4 address for eth0: 10.0.0.4
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+20 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+Last login: Sun Jul 27 16:12:03 2025 from 152.57.109.63
+deepa@jenkins-deepa:~$ sudo apt update
+Hit:1 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+Get:2 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:3 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:4 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:5 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1313 kB]
+Ign:6 https://pkg.jenkins.io/debian-stable binary/ InRelease
+Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [263 kB]
+Hit:8 https://pkg.jenkins.io/debian-stable binary/ Release
+Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [164 kB]
+Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1116 kB]
+Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [286 kB]
+Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [377 kB]
+Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1645 kB]
+Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [359 kB]
+Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:17 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7060 B]
+Get:18 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [28.3 kB]
+Get:19 http://azure.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:20 http://azure.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1054 kB]
+Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [183 kB]
+Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [21.6 kB]
+Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [879 kB]
+Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [194 kB]
+Get:26 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [52.2 kB]
+Get:27 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1560 kB]
+Get:28 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [342 kB]
+Get:29 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+Get:30 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [212 B]
+Fetched 10.2 MB in 2s (4785 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+29 packages can be upgraded. Run 'apt list --upgradable' to see them.
+deepa@jenkins-deepa:~$ ^[[200~sudo apt-get install openssl
+sudo: command not found
+deepa@jenkins-deepa:~$ sudo apt-get install openssl
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+openssl is already the newest version (3.0.13-0ubuntu3.5).
+openssl set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 29 not upgraded.
+deepa@jenkins-deepa:~$ openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out
+certificate.pem
+req: Option -out needs a value
+req: Use -help for summary.
+certificate.pem: command not found
+deepa@jenkins-deepa:~$  openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out
+certificate.pem
+req: Option -out needs a value
+req: Use -help for summary.
+certificate.pem: command not found
+deepa@jenkins-deepa:~$ openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out certificate.pem
+.........+...+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.+....+..+...+.+............+....                              ........+..+...+.......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*......+..+.......+...+.                              .+.+......+....................+......+....+.....+..................+.+..+.......+......+..+............+......+                              ....+......+............+..+.......+...+.....................+++++++++++++++++++++++++++++++++++++++++++++++++++                              ++++++++++++++
+..+...+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*...............+.......+..+.++++++++++++                              +++++++++++++++++++++++++++++++++++++++++++++++++++++*........+.........+.+..+....+..............+..........+...                              ........+.............+..+.........+........................+...+....+...+............+.....+.........+.......+.                              ..+............+.....+....+.........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:IN
+State or Province Name (full name) [Some-State]:karnataka
+Locality Name (eg, city) []:bangalore
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:ABC
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+deepa@jenkins-deepa:~$  openssl pkcs12 -inkey key.pem -in certificate.pem -export -out certificate.p12
+Enter Export Password:
+Verifying - Enter Export Password:
+deepa@jenkins-deepa:~$ keytool -importkeystore -srckeystore ./certificate.p12 -srcstoretype pkcs12
+destkeystore jenkinsserver.jks -deststoretype JKS
+Importing keystore ./certificate.p12 to /home/deepa/.keystore...
+Enter destination keystore password:
+Re-enter new password:
+Enter source keystore password:
+Entry for alias 1 successfully imported.
+Import command completed:  1 entries successfully imported, 0 entries failed or cancelled
+destkeystore: command not found
+deepa@jenkins-deepa:~$ cd /home/deepa
+deepa@jenkins-deepa:~$ ls-lrt
+ls-lrt: command not found
+deepa@jenkins-deepa:~$ ls lrt
+ls: cannot access 'lrt': No such file or directory
+deepa@jenkins-deepa:~$ ls -lrt
+total 12
+-rw------- 1 deepa deepa 1704 Aug  2 09:45 key.pem
+-rw-rw-r-- 1 deepa deepa 1241 Aug  2 09:48 certificate.pem
+deepa@jenkins-deepa:~$ keytool -importkeystore -srckeystore ./certificate.p12 -srcstoretype pkcs12 -destkeystore jenkinsserver.jks -deststoret
+Importing keystore ./certificate.p12 to jenkinsserver.jks...
+Enter destination keystore password:
+Re-enter new password:
+Enter source keystore password:
+Entry for alias 1 successfully imported.
+Import command completed:  1 entries successfully imported, 0 entries failed or cancelled
+
+Warning:
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format using "keytool -importystore jenkinsserver.jks -destkeystore jenkinsserver.jks -deststoretype pkcs12".
+deepa@jenkins-deepa:~$ "keytool -importkeystore -srckeystore jenkinsserver.jks -destkeystore jenkinsserver.jks -deststoretype pkcs12"
+keytool -importkeystore -srckeystore jenkinsserver.jks -destkeystore jenkinsserver.jks -deststoretype pkcs12: command not found
+deepa@jenkins-deepa:~$ keytool -importkeystore -srckeystore jenkinsserver.jks -destkeystore jenkinsserver.jks -deststoretype pkcs12
+Enter source keystore password:
+Entry for alias 1 successfully imported.
+Import command completed:  1 entries successfully imported, 0 entries failed or cancelled
+
+Warning:
+Migrated "jenkinsserver.jks" to PKCS12. The JKS keystore is backed up as "jenkinsserver.jks.old".
+deepa@jenkins-deepa:~$ ls lrt
+ls: cannot access 'lrt': No such file or directory
+deepa@jenkins-deepa:~$ ls -lrt
+total 20
+-rw------- 1 deepa deepa 1704 Aug  2 09:45 key.pem
+-rw-rw-r-- 1 deepa deepa 1241 Aug  2 09:48 certificate.pem
+-rw------- 1 deepa deepa 2627 Aug  2 09:51 certificate.p12
+-rw-rw-r-- 1 deepa deepa 2219 Aug  2 10:22 jenkinsserver.jks.old
+-rw-rw-r-- 1 deepa deepa 2702 Aug  2 10:22 jenkinsserver.jks
+deepa@jenkins-deepa:~$ cp jenkinsserver.jks /var/lib/jenkins/
+cp: cannot create regular file '/var/lib/jenkins/jenkinsserver.jks': Permission denied
+deepa@jenkins-deepa:~$ sudo cp jenkinsserver.jks /var/lib/jenkins/
+deepa@jenkins-deepa:~$ sudo chown jenkins:jenkins /var/lib/jenkins/jenkinsserver.jks
+deepa@jenkins-deepa:~$ /etc/systemd/system/multi-user.target.wants/jenkins.service
+-bash: /etc/systemd/system/multi-user.target.wants/jenkins.service: Permission denied
+deepa@jenkins-deepa:~$ sudo /etc/systemd/system/multi-user.target.wants/jenkins.service
+sudo: /etc/systemd/system/multi-user.target.wants/jenkins.service: command not found
+deepa@jenkins-deepa:~$ sudo /etc/systemd/system/multi-user.target.wants/jenkins.service
+sudo: /etc/systemd/system/multi-user.target.wants/jenkins.service: command not found
+deepa@jenkins-deepa:~$ sudo /etc/systemd/system/multi-user.target.wantse
+sudo: /etc/systemd/system/multi-user.target.wantse: command not found
+deepa@jenkins-deepa:~$ sudo /lib/systemd/system/jenkins.service
+sudo: /lib/systemd/system/jenkins.service: command not found
+deepa@jenkins-deepa:~$ ls /lib/systemd/system/jenkins.service
+/lib/systemd/system/jenkins.service
+deepa@jenkins-deepa:~$ ls /lib/systemd/system/jenkins.service
+/lib/systemd/system/jenkins.service
+deepa@jenkins-deepa:~$ systemctl start jenkins
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ====
+Authentication is required to start 'jenkins.service'.
+Authenticating as: Ubuntu (deepa)
+Password:
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ====
+Failed to start jenkins.service: Access denied
+See system logs and 'systemctl status jenkins.service' for details.
+deepa@jenkins-deepa:~$ systemctl start jenkins
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ====
+Authentication is required to start 'jenkins.service'.
+Authenticating as: Ubuntu (deepa)
+Password:
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ====
+Failed to start jenkins.service: Access denied
+See system logs and 'systemctl status jenkins.service' for details.
+deepa@jenkins-deepa:~$ sudo systemctl start jenkins
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/multi-user.target.wants/jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins.service
+Warning: The unit file, source configuration file or drop-ins of jenkins.service                                                               changed on disk. Run 'systemctl daemon-reload' to reload units.
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins.service
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 11:32:25 UTC; 6min ago
+   Main PID: 5880 (java)
+      Tasks: 46 (limit: 19111)
+     Memory: 397.2M (peak: 413.5M)
+        CPU: 37.431s
+     CGroup: /system.slice/jenkins.service
+             └─5880 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080
+
+Aug 02 11:32:24 jenkins-deepa jenkins[5880]: 2025-08-02 11:32:24.869+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 11:32:24 jenkins-deepa jenkins[5880]: 2025-08-02 11:32:24.870+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 11:32:24 jenkins-deepa jenkins[5880]: 2025-08-02 11:32:24.943+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 11:32:24 jenkins-deepa jenkins[5880]: 2025-08-02 11:32:24.981+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 11:32:25 jenkins-deepa jenkins[5880]: 2025-08-02 11:32:25.036+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 11:32:25 jenkins-deepa jenkins[5880]: 2025-08-02 11:32:25.187+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 11:32:25 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 11:38:40 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:151: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 11:38:40 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:152: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 11:38:40 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:153: Unknown key name 'Environment' in section 'Install', ig
+
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/multi-user.target.wants/jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins.service
+Warning: The unit file, source configuration file or drop-ins of jenkins.service changed on disk. Run 'systemctl daemon-reload' to reload unit
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins.service
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 12:00:21 UTC; 40s ago
+   Main PID: 6186 (java)
+      Tasks: 53 (limit: 19111)
+     Memory: 349.8M (peak: 350.9M)
+        CPU: 34.708s
+     CGroup: /system.slice/jenkins.service
+             └─6186 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080
+
+Aug 02 12:00:21 jenkins-deepa jenkins[6186]: 2025-08-02 12:00:21.464+0000 [id=42]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:00:21 jenkins-deepa jenkins[6186]: 2025-08-02 12:00:21.546+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:00:21 jenkins-deepa jenkins[6186]: 2025-08-02 12:00:21.687+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 12:00:21 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 12:00:45 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:151: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 12:00:45 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:152: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 12:00:45 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:153: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 12:01:02 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:151: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 12:01:02 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:152: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 12:01:02 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:153: Unknown key name 'Environment' in section 'Install', ig
+
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl stop jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins.service
+deepa@jenkins-deepa:~$ sudo ufw allow 8443
+Rules updated
+Rules updated (v6)
+deepa@jenkins-deepa:~$ sudo firewall-cmd --add-port=8443/tcp --permanent
+sudo firewall-cmd --reload
+sudo: firewall-cmd: command not found
+sudo: firewall-cmd: command not found
+deepa@jenkins-deepa:~$ sudo firewall-cmd --add-port=8443/tcp --permanent
+sudo: firewall-cmd: command not found
+deepa@jenkins-deepa:~$ sudo ufw allow 8443/tcp
+Rules updated
+Rules updated (v6)
+deepa@jenkins-deepa:~$ sudo ufw status numbered
+Status: inactive
+deepa@jenkins-deepa:~$ sudo netstat -tuln | grep 8443
+deepa@jenkins-deepa:~$ sudo vi /etc/default/jenkins
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo journalctl -u jenkins -n 50
+Aug 02 12:05:29 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:29.813+0000 [id=45]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.440+0000 [id=45]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.466+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.471+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.542+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.567+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.613+0000 [id=42]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.795+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 12:05:31 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: Stopping jenkins.service - Jenkins Continuous Integration Server...
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.126+0000 [id=35]        INFO        winstone.Logger#logInternal: JVM is termi
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.127+0000 [id=35]        INFO        org.eclipse.jetty.server.Server#doStop: S
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.134+0000 [id=35]        INFO        hudson.lifecycle.Lifecycle#onStatusUpdate
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.149+0000 [id=35]        INFO        jenkins.model.Jenkins$17#onAttained: Star
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.169+0000 [id=35]        INFO        h.p.b.global.Lifecycle#shutdown: Shutdown
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.170+0000 [id=35]        INFO        jenkins.model.Jenkins$17#onAttained: Comp
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.170+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpDisconnectC
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.195+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpShutdownPlu
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.219+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpPersistQueu
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.236+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpAwaitDiscon
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.236+0000 [id=35]        INFO        hudson.lifecycle.Lifecycle#onStatusUpdate
+Aug 02 12:21:23 jenkins-deepa systemd[1]: jenkins.service: Deactivated successfully.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: Stopped jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: jenkins.service: Consumed 37.652s CPU time.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: Starting jenkins.service - Jenkins Continuous Integration Server...
+Aug 02 12:21:23 jenkins-deepa jenkins[6747]: Running from: /usr/share/java/jenkins.war
+Aug 02 12:21:24 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:24.170+0000 [id=1]        INFO        winstone.Logger#logInternal: Beginning ext
+Aug 02 12:21:24 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:24.295+0000 [id=1]        WARNING        o.e.j.ee9.nested.ContextHandler#setCont
+Aug 02 12:21:24 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:24.373+0000 [id=1]        INFO        org.eclipse.jetty.server.Server#doStart: j
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.077+0000 [id=1]        INFO        o.e.j.e.w.StandardDescriptorProcessor#visi
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.176+0000 [id=1]        INFO        o.e.j.s.DefaultSessionIdManager#doStart: S
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.799+0000 [id=1]        INFO        hudson.WebAppMain#contextInitialized: Jenk
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.951+0000 [id=1]        INFO        o.e.j.s.handler.ContextHandler#doStart: St
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.982+0000 [id=1]        INFO        org.eclipse.jetty.server.Server#doStart: S
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.983+0000 [id=34]        INFO        winstone.Logger#logInternal: Winstone Ser
+Aug 02 12:21:26 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:26.203+0000 [id=33]        INFO        jenkins.model.Jenkins#<init>: Starting ve
+Aug 02 12:21:26 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:26.435+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:26 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:26.573+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.575+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: P
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.630+0000 [id=44]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.635+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: A
+Aug 02 12:21:32 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:32.343+0000 [id=41]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.072+0000 [id=41]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+lines 1-43...skipping...
+Aug 02 12:05:29 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:29.813+0000 [id=45]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.440+0000 [id=45]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.466+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.471+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.542+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.567+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.613+0000 [id=42]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.795+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 12:05:31 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: Stopping jenkins.service - Jenkins Continuous Integration Server...
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.126+0000 [id=35]        INFO        winstone.Logger#logInternal: JVM is termi
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.127+0000 [id=35]        INFO        org.eclipse.jetty.server.Server#doStop: S
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.134+0000 [id=35]        INFO        hudson.lifecycle.Lifecycle#onStatusUpdate
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.149+0000 [id=35]        INFO        jenkins.model.Jenkins$17#onAttained: Star
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.169+0000 [id=35]        INFO        h.p.b.global.Lifecycle#shutdown: Shutdown
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.170+0000 [id=35]        INFO        jenkins.model.Jenkins$17#onAttained: Comp
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.170+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpDisconnectC
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.195+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpShutdownPlu
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.219+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpPersistQueu
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.236+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpAwaitDiscon
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.236+0000 [id=35]        INFO        hudson.lifecycle.Lifecycle#onStatusUpdate
+Aug 02 12:21:23 jenkins-deepa systemd[1]: jenkins.service: Deactivated successfully.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: Stopped jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: jenkins.service: Consumed 37.652s CPU time.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: Starting jenkins.service - Jenkins Continuous Integration Server...
+Aug 02 12:21:23 jenkins-deepa jenkins[6747]: Running from: /usr/share/java/jenkins.war
+Aug 02 12:21:24 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:24.170+0000 [id=1]        INFO        winstone.Logger#logInternal: Beginning ext
+Aug 02 12:21:24 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:24.295+0000 [id=1]        WARNING        o.e.j.ee9.nested.ContextHandler#setCont
+Aug 02 12:21:24 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:24.373+0000 [id=1]        INFO        org.eclipse.jetty.server.Server#doStart: j
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.077+0000 [id=1]        INFO        o.e.j.e.w.StandardDescriptorProcessor#visi
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.176+0000 [id=1]        INFO        o.e.j.s.DefaultSessionIdManager#doStart: S
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.799+0000 [id=1]        INFO        hudson.WebAppMain#contextInitialized: Jenk
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.951+0000 [id=1]        INFO        o.e.j.s.handler.ContextHandler#doStart: St
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.982+0000 [id=1]        INFO        org.eclipse.jetty.server.Server#doStart: S
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.983+0000 [id=34]        INFO        winstone.Logger#logInternal: Winstone Ser
+Aug 02 12:21:26 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:26.203+0000 [id=33]        INFO        jenkins.model.Jenkins#<init>: Starting ve
+Aug 02 12:21:26 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:26.435+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:26 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:26.573+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.575+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: P
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.630+0000 [id=44]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.635+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: A
+Aug 02 12:21:32 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:32.343+0000 [id=41]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.072+0000 [id=41]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.102+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.103+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.174+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.177+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.257+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+lines 1-48...skipping...
+Aug 02 12:05:29 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:29.813+0000 [id=45]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.440+0000 [id=45]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.466+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.471+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.542+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.567+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.613+0000 [id=42]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:05:31 jenkins-deepa jenkins[6486]: 2025-08-02 12:05:31.795+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 12:05:31 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: Stopping jenkins.service - Jenkins Continuous Integration Server...
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.126+0000 [id=35]        INFO        winstone.Logger#logInternal: JVM is termi
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.127+0000 [id=35]        INFO        org.eclipse.jetty.server.Server#doStop: S
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.134+0000 [id=35]        INFO        hudson.lifecycle.Lifecycle#onStatusUpdate
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.149+0000 [id=35]        INFO        jenkins.model.Jenkins$17#onAttained: Star
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.169+0000 [id=35]        INFO        h.p.b.global.Lifecycle#shutdown: Shutdown
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.170+0000 [id=35]        INFO        jenkins.model.Jenkins$17#onAttained: Comp
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.170+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpDisconnectC
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.195+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpShutdownPlu
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.219+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpPersistQueu
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.236+0000 [id=35]        INFO        jenkins.model.Jenkins#_cleanUpAwaitDiscon
+Aug 02 12:21:23 jenkins-deepa jenkins[6486]: 2025-08-02 12:21:23.236+0000 [id=35]        INFO        hudson.lifecycle.Lifecycle#onStatusUpdate
+Aug 02 12:21:23 jenkins-deepa systemd[1]: jenkins.service: Deactivated successfully.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: Stopped jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: jenkins.service: Consumed 37.652s CPU time.
+Aug 02 12:21:23 jenkins-deepa systemd[1]: Starting jenkins.service - Jenkins Continuous Integration Server...
+Aug 02 12:21:23 jenkins-deepa jenkins[6747]: Running from: /usr/share/java/jenkins.war
+Aug 02 12:21:24 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:24.170+0000 [id=1]        INFO        winstone.Logger#logInternal: Beginning ext
+Aug 02 12:21:24 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:24.295+0000 [id=1]        WARNING        o.e.j.ee9.nested.ContextHandler#setCont
+Aug 02 12:21:24 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:24.373+0000 [id=1]        INFO        org.eclipse.jetty.server.Server#doStart: j
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.077+0000 [id=1]        INFO        o.e.j.e.w.StandardDescriptorProcessor#visi
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.176+0000 [id=1]        INFO        o.e.j.s.DefaultSessionIdManager#doStart: S
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.799+0000 [id=1]        INFO        hudson.WebAppMain#contextInitialized: Jenk
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.951+0000 [id=1]        INFO        o.e.j.s.handler.ContextHandler#doStart: St
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.982+0000 [id=1]        INFO        org.eclipse.jetty.server.Server#doStart: S
+Aug 02 12:21:25 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:25.983+0000 [id=34]        INFO        winstone.Logger#logInternal: Winstone Ser
+Aug 02 12:21:26 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:26.203+0000 [id=33]        INFO        jenkins.model.Jenkins#<init>: Starting ve
+Aug 02 12:21:26 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:26.435+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:26 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:26.573+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.575+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: P
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.630+0000 [id=44]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.635+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: A
+Aug 02 12:21:32 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:32.343+0000 [id=41]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.072+0000 [id=41]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.102+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.103+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.174+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.177+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.257+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.467+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 12:21:34 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+~
+~
+~
+~
+~
+~
+~
+~
+
+deepa@jenkins-deepa:~$ sudo netstat -tuln | grep 8443
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 12:21:34 UTC; 7min ago
+   Main PID: 6747 (java)
+      Tasks: 46 (limit: 19111)
+     Memory: 399.1M (peak: 408.4M)
+        CPU: 37.721s
+     CGroup: /system.slice/jenkins.service
+             └─6747 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=-1
+
+Aug 02 12:21:31 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:31.635+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: A
+Aug 02 12:21:32 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:32.343+0000 [id=41]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.072+0000 [id=41]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.102+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.103+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.174+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.177+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.257+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:21:34 jenkins-deepa jenkins[6747]: 2025-08-02 12:21:34.467+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 12:21:34 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+
+deepa@jenkins-deepa:~$ sudo vi /etc/default/jenkins
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo systemctl stop jenkins
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 12:45:08 UTC; 18s ago
+   Main PID: 7267 (java)
+      Tasks: 54 (limit: 19111)
+     Memory: 349.5M (peak: 352.9M)
+        CPU: 34.922s
+     CGroup: /system.slice/jenkins.service
+             └─7267 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=-1
+
+Aug 02 12:45:05 jenkins-deepa jenkins[7267]: 2025-08-02 12:45:05.731+0000 [id=44]        INFO        jenkins.InitReactorRunner$1#onAttained: A
+Aug 02 12:45:06 jenkins-deepa jenkins[7267]: 2025-08-02 12:45:06.423+0000 [id=39]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 12:45:08 jenkins-deepa jenkins[7267]: 2025-08-02 12:45:08.062+0000 [id=39]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+Aug 02 12:45:08 jenkins-deepa jenkins[7267]: 2025-08-02 12:45:08.095+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:45:08 jenkins-deepa jenkins[7267]: 2025-08-02 12:45:08.097+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:45:08 jenkins-deepa jenkins[7267]: 2025-08-02 12:45:08.171+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:45:08 jenkins-deepa jenkins[7267]: 2025-08-02 12:45:08.195+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:45:08 jenkins-deepa jenkins[7267]: 2025-08-02 12:45:08.244+0000 [id=44]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:45:08 jenkins-deepa jenkins[7267]: 2025-08-02 12:45:08.388+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 12:45:08 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+
+deepa@jenkins-deepa:~$ sudo vi /etc/default/jenkins
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 12:53:58 UTC; 8s ago
+   Main PID: 7445 (java)
+      Tasks: 54 (limit: 19111)
+     Memory: 352.8M (peak: 361.9M)
+        CPU: 34.998s
+     CGroup: /system.slice/jenkins.service
+             └─7445 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=-1
+
+Aug 02 12:53:56 jenkins-deepa jenkins[7445]: 2025-08-02 12:53:56.006+0000 [id=44]        INFO        jenkins.InitReactorRunner$1#onAttained: A
+Aug 02 12:53:56 jenkins-deepa jenkins[7445]: 2025-08-02 12:53:56.594+0000 [id=41]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 12:53:58 jenkins-deepa jenkins[7445]: 2025-08-02 12:53:58.034+0000 [id=41]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+Aug 02 12:53:58 jenkins-deepa jenkins[7445]: 2025-08-02 12:53:58.314+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:53:58 jenkins-deepa jenkins[7445]: 2025-08-02 12:53:58.316+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 12:53:58 jenkins-deepa jenkins[7445]: 2025-08-02 12:53:58.399+0000 [id=44]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 12:53:58 jenkins-deepa jenkins[7445]: 2025-08-02 12:53:58.402+0000 [id=42]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:53:58 jenkins-deepa jenkins[7445]: 2025-08-02 12:53:58.470+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 12:53:58 jenkins-deepa jenkins[7445]: 2025-08-02 12:53:58.628+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 12:53:58 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+
+deepa@jenkins-deepa:~$ --httpPort=-1 --httpsPort=8443 --httpsKeyStore=/var/lib/jenkins/jenkins.jks --httpsKeyStorePassword=changeit
+--httpPort=-1: command not found
+deepa@jenkins-deepa:~$ sudo vi /etc/default/jenkins
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 13:06:18 UTC; 15s ago
+   Main PID: 7705 (java)
+      Tasks: 53 (limit: 19111)
+     Memory: 362.3M (peak: 363.1M)
+        CPU: 33.357s
+     CGroup: /system.slice/jenkins.service
+             └─7705 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=-1
+
+Aug 02 13:06:15 jenkins-deepa jenkins[7705]: 2025-08-02 13:06:15.652+0000 [id=42]        INFO        jenkins.InitReactorRunner$1#onAttained: A
+Aug 02 13:06:16 jenkins-deepa jenkins[7705]: 2025-08-02 13:06:16.242+0000 [id=43]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load:
+Aug 02 13:06:17 jenkins-deepa jenkins[7705]: 2025-08-02 13:06:17.463+0000 [id=43]        WARNING        hudson.model.Slave#warnPlugin: hudson.
+Aug 02 13:06:17 jenkins-deepa jenkins[7705]: 2025-08-02 13:06:17.777+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 13:06:17 jenkins-deepa jenkins[7705]: 2025-08-02 13:06:17.779+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 13:06:17 jenkins-deepa jenkins[7705]: 2025-08-02 13:06:17.857+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 13:06:17 jenkins-deepa jenkins[7705]: 2025-08-02 13:06:17.880+0000 [id=44]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 13:06:17 jenkins-deepa jenkins[7705]: 2025-08-02 13:06:17.924+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 13:06:18 jenkins-deepa jenkins[7705]: 2025-08-02 13:06:18.112+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 13:06:18 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+
+deepa@jenkins-deepa:~$ sudo netstat -tuln | grep 8443
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/multi-user.target.wants/jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reexec
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 13:27:14 UTC; 15s ago
+   Main PID: 8590 (java)
+      Tasks: 57 (limit: 19111)
+     Memory: 359.9M (peak: 360.2M)
+        CPU: 34.809s
+     CGroup: /system.slice/jenkins.service
+             └─8590 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=-1
+
+Aug 02 13:27:13 jenkins-deepa jenkins[8590]: 2025-08-02 13:27:13.761+0000 [id=42]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 13:27:13 jenkins-deepa jenkins[8590]: 2025-08-02 13:27:13.763+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 13:27:13 jenkins-deepa jenkins[8590]: 2025-08-02 13:27:13.842+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 13:27:13 jenkins-deepa jenkins[8590]: 2025-08-02 13:27:13.845+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 13:27:13 jenkins-deepa jenkins[8590]: 2025-08-02 13:27:13.916+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 13:27:14 jenkins-deepa jenkins[8590]: 2025-08-02 13:27:14.096+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 13:27:14 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 13:27:29 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:151: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:27:29 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:152: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:27:29 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:153: Unknown key name 'Environment' in section 'Install', ig
+deepa@jenkins-deepa:~$ sudo netstat -tuln | grep 8443
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/multi-user.target.wants/jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 13:37:31 UTC; 13s ago
+   Main PID: 8846 (java)
+      Tasks: 54 (limit: 19111)
+     Memory: 350.7M (peak: 358.3M)
+        CPU: 36.250s
+     CGroup: /system.slice/jenkins.service
+             └─8846 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war
+
+Aug 02 13:37:31 jenkins-deepa jenkins[8846]: 2025-08-02 13:37:31.492+0000 [id=46]        INFO        jenkins.InitReactorRunner$1#onAttained: S
+Aug 02 13:37:31 jenkins-deepa jenkins[8846]: 2025-08-02 13:37:31.580+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained: L
+Aug 02 13:37:31 jenkins-deepa jenkins[8846]: 2025-08-02 13:37:31.584+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 13:37:31 jenkins-deepa jenkins[8846]: 2025-08-02 13:37:31.653+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained: C
+Aug 02 13:37:31 jenkins-deepa jenkins[8846]: 2025-08-02 13:37:31.819+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenki
+Aug 02 13:37:31 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 13:37:45 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:151: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:37:45 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:152: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:37:45 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:153: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:37:45 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:154: Unknown key name 'Environment' in section 'Install', ig
+deepa@jenkins-deepa:~$ sudo mkdir -p /etc/systemd/system/jenkins.service.d
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/jenkins.service.d/https.conf
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.service" for details.
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.service" for details.
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/multi-user.target.wants/jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins.service
+× jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+    Drop-In: /etc/systemd/system/jenkins.service.d
+             └─https.conf
+     Active: failed (Result: exit-code) since Sat 2025-08-02 13:45:44 UTC; 5min ago
+   Duration: 8min 6.156s
+    Process: 9246 ExecStart=/usr/bin/jenkins (code=exited, status=1/FAILURE)
+   Main PID: 9246 (code=exited, status=1/FAILURE)
+        CPU: 2.948s
+
+Aug 02 13:45:44 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+Aug 02 13:45:44 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 13:45:44 jenkins-deepa systemd[1]: jenkins.service: Consumed 2.948s CPU time.
+Aug 02 13:45:59 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 13:45:59 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+Aug 02 13:45:59 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 13:51:22 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:151: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:51:22 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:152: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:51:22 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:153: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:51:22 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:154: Unknown key name 'Environment' in section 'Install', ig
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/multi-user.target.wants/jenkins.service
+deepa@jenkins-deepa:~$ sudo journalctl -xeu jenkins.service
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ A start job for unit jenkins.service has finished with a failure.
+░░
+░░ The job identifier is 12148 and the job result is failed.
+Aug 02 13:45:44 jenkins-deepa systemd[1]: jenkins.service: Consumed 2.948s CPU time.
+░░ Subject: Resources consumed by unit runtime
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service completed and consumed the indicated resources.
+Aug 02 13:45:44 jenkins-deepa systemd[1]: jenkins.service: Scheduled restart job, restart counter is at 5.
+░░ Subject: Automatic restarting of a unit has been scheduled
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ Automatic restarting of the unit jenkins.service has been scheduled, as the result for
+░░ the configured Restart= setting for the unit.
+Aug 02 13:45:44 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 13:45:44 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+░░ Subject: Unit failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service has entered the 'failed' state with result 'exit-code'.
+Aug 02 13:45:44 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+░░ Subject: A start job for unit jenkins.service has failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ A start job for unit jenkins.service has finished with a failure.
+░░
+░░ The job identifier is 12270 and the job result is failed.
+Aug 02 13:45:44 jenkins-deepa systemd[1]: jenkins.service: Consumed 2.948s CPU time.
+░░ Subject: Resources consumed by unit runtime
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service completed and consumed the indicated resources.
+Aug 02 13:45:59 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 13:45:59 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+░░ Subject: Unit failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service has entered the 'failed' state with result 'exit-code'.
+Aug 02 13:45:59 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+░░ Subject: A start job for unit jenkins.service has failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ A start job for unit jenkins.service has finished with a failure.
+░░
+░░ The job identifier is 12392 and the job result is failed.
+Aug 02 13:51:22 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:151: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:51:22 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:152: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:51:22 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:153: Unknown key name 'Environment' in section 'Install', ig
+Aug 02 13:51:22 jenkins-deepa systemd[1]: /usr/lib/systemd/system/jenkins.service:154: Unknown key name 'Environment' in section 'Install', ig
+
+deepa@jenkins-deepa:~$ ls -l /var/lib/jenkins/jenkins.jks
+ls: cannot access '/var/lib/jenkins/jenkins.jks': No such file or directory
+deepa@jenkins-deepa:~$ sudo chown jenkins:jenkins /var/lib/jenkins/jenkins.jks
+chown: cannot access '/var/lib/jenkins/jenkins.jks': No such file or directory
+deepa@jenkins-deepa:~$ sudo chmod 600 /var/lib/jenkins/jenkins.jks
+chmod: cannot access '/var/lib/jenkins/jenkins.jks': No such file or directory
+deepa@jenkins-deepa:~$ ls -l /var/lib/jenkins/jenkinsserver.jks
+-rw-r--r-- 1 jenkins jenkins 2702 Aug  2 10:35 /var/lib/jenkins/jenkinsserver.jks
+deepa@jenkins-deepa:~$ sudo chmod 600 /var/lib/jenkins/jenkiisserver.jks
+chmod: cannot access '/var/lib/jenkins/jenkiisserver.jks': No such file or directory
+deepa@jenkins-deepa:~$ sudo chmod 600 /var/lib/jenkins/jenkinsserver.jks
+deepa@jenkins-deepa:~$ keytool -list -keystore /var/lib/jenkins/jenkinsserver.jks
+keytool error: java.lang.Exception: Keystore file does not exist: /var/lib/jenkins/jenkinsserver.jks
+deepa@jenkins-deepa:~$ keytool -list -keystore /home/deepa/jenkinsserver.jks
+Enter keystore password:
+Keystore type: PKCS12
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+1, Aug 2, 2025, PrivateKeyEntry,
+Certificate fingerprint (SHA-256): 69:2F:E8:02:BB:74:49:46:62:B6:1B:F6:58:69:4B:89:E9:0D:03:A1:84:64:34:8C:92:B4:32:E3:3D:A6:6D:1D
+deepa@jenkins-deepa:~$ sudo cat /etc/systemd/system/jenkins.service.d/https.conf
+[Service]
+Environment="JENKINS_PORT=-1"
+Environment="JENKINS_HTTPS_PORT=8443"
+Environment="JENKINS_HTTPS_KEYSTORE=/home/deepa/jenkins.jks"
+Environment="JENKINS_HTTPS_KEYSTORE_PASSWORD=deepa1128"
+
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/jenkins.service.d/https.conf
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.service" for details.
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/multi-user.target.wants/jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.service" for details.
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/jenkins.service.d/https.conf
+deepa@jenkins-deepa:~$ sudo rm -r /etc/systemd/system/jenkins.service.d/https.conf
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Warning: The unit file, source configuration file or drop-ins of jenkins.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.service" for details.
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.service" for details.
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins.service
+× jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Sat 2025-08-02 14:26:33 UTC; 3min 39s ago
+   Duration: 8min 6.156s
+   Main PID: 9998 (code=exited, status=1/FAILURE)
+        CPU: 2.919s
+
+Aug 02 14:26:33 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 14:26:33 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+Aug 02 14:26:33 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 14:26:33 jenkins-deepa systemd[1]: jenkins.service: Consumed 2.919s CPU time.
+Aug 02 14:29:12 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 14:29:12 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+Aug 02 14:29:12 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 14:29:31 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 14:29:31 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+Aug 02 14:29:31 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+deepa@jenkins-deepa:~$ ls -l /home/deepa/jenkinsserver.jks
+-rw-rw-r-- 1 deepa deepa 2702 Aug  2 10:22 /home/deepa/jenkinsserver.jks
+deepa@jenkins-deepa:~$ sudo chmod 644 /home/deepa/jenkinsserver.jks
+deepa@jenkins-deepa:~$ sudo chown jenkins:jenkins /home/deepa/jenkinsserver.jks
+deepa@jenkins-deepa:~$ ls -l /home/deepa/jenkinsserver.jks
+-rw-r--r-- 1 jenkins jenkins 2702 Aug  2 10:22 /home/deepa/jenkinsserver.jks
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.service" for details.
+deepa@jenkins-deepa:~$ systemctl show jenkins.service | grep Environment
+Environment=JENKINS_HOME=/var/lib/jenkins JENKINS_WEBROOT=/var/cache/jenkins/war JAVA_OPTS=-Djava.awt.headless=true JENKINS_PORT=-1 JENKINS_HTTPS_PORT=8443 JENKINS_HTTPS_KEYSTORE=/home/deepa/jenkinsserver.jks JENKINS_HTTPS_KEYSTORE_PASSWORD=deepa1128
+SetLoginEnvironment=no
+deepa@jenkins-deepa:~$ keytool -list -v -keystore /home/deepa/jenkinsserver.jks
+Enter keystore password:
+Keystore type: PKCS12
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+Alias name: 1
+Creation date: Aug 2, 2025
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: O=ABC, L=bangalore, ST=karnataka, C=IN
+Issuer: O=ABC, L=bangalore, ST=karnataka, C=IN
+Serial number: 4e27c9f0c80a9c682e511d62a86bec35f9a9c9d9
+Valid from: Sat Aug 02 09:48:45 UTC 2025 until: Sun Aug 02 09:48:45 UTC 2026
+Certificate fingerprints:
+         SHA1: DA:3E:A9:80:68:19:8F:F7:29:29:5E:6C:61:F9:70:0A:92:D2:5F:04
+         SHA256: 69:2F:E8:02:BB:74:49:46:62:B6:1B:F6:58:69:4B:89:E9:0D:03:A1:84:64:34:8C:92:B4:32:E3:3D:A6:6D:1D
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: 57 FF 29 12 B2 41 01 2B   40 3D E7 26 97 22 D5 CA  W.)..A.+@=.&."..
+0010: B6 83 2D BA                                        ..-.
+]
+]
+
+#2: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen: no limit
+]
+
+#3: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 57 FF 29 12 B2 41 01 2B   40 3D E7 26 97 22 D5 CA  W.)..A.+@=.&."..
+0010: B6 83 2D BA                                        ..-.
+]
+]
+
+
+
+*******************************************
+*******************************************
+
+
+deepa@jenkins-deepa:~$ ^C
+deepa@jenkins-deepa:~$ sudo journalctl -xeu jenkins.service
+Aug 02 14:33:36 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+░░ Subject: A start job for unit jenkins.service has failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ A start job for unit jenkins.service has finished with a failure.
+░░
+░░ The job identifier is 15573 and the job result is failed.
+Aug 02 14:33:36 jenkins-deepa systemd[1]: jenkins.service: Consumed 2.968s CPU time.
+░░ Subject: Resources consumed by unit runtime
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service completed and consumed the indicated resources.
+Aug 02 14:33:36 jenkins-deepa systemd[1]: jenkins.service: Scheduled restart job, restart counter is at 5.
+░░ Subject: Automatic restarting of a unit has been scheduled
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ Automatic restarting of the unit jenkins.service has been scheduled, as the result for
+░░ the configured Restart= setting for the unit.
+Aug 02 14:33:36 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 14:33:36 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+░░ Subject: Unit failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service has entered the 'failed' state with result 'exit-code'.
+Aug 02 14:33:36 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+░░ Subject: A start job for unit jenkins.service has failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ A start job for unit jenkins.service has finished with a failure.
+░░
+░░ The job identifier is 15695 and the job result is failed.
+Aug 02 14:33:36 jenkins-deepa systemd[1]: jenkins.service: Consumed 2.968s CPU time.
+░░ Subject: Resources consumed by unit runtime
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service completed and consumed the indicated resources.
+
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/multi-user.target.wants/jenkins.service
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins.service
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 14:46:29 UTC; 31s ago
+   Main PID: 10535 (java)
+      Tasks: 58 (limit: 19111)
+     Memory: 348.0M (peak: 348.5M)
+        CPU: 34.401s
+     CGroup: /system.slice/jenkins.service
+             └─10535 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080
+
+Aug 02 14:46:26 jenkins-deepa jenkins[10535]: 2025-08-02 14:46:26.534+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:46:27 jenkins-deepa jenkins[10535]: 2025-08-02 14:46:27.383+0000 [id=42]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load>
+Aug 02 14:46:28 jenkins-deepa jenkins[10535]: 2025-08-02 14:46:28.744+0000 [id=39]        WARNING        hudson.model.Slave#warnPlugin: hudso>
+Aug 02 14:46:28 jenkins-deepa jenkins[10535]: 2025-08-02 14:46:28.794+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:46:28 jenkins-deepa jenkins[10535]: 2025-08-02 14:46:28.801+0000 [id=44]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:46:28 jenkins-deepa jenkins[10535]: 2025-08-02 14:46:28.888+0000 [id=46]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:46:28 jenkins-deepa jenkins[10535]: 2025-08-02 14:46:28.894+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:46:28 jenkins-deepa jenkins[10535]: 2025-08-02 14:46:28.983+0000 [id=47]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:46:29 jenkins-deepa jenkins[10535]: 2025-08-02 14:46:29.139+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jen>
+Aug 02 14:46:29 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reexec
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-08-02 14:47:57 UTC; 16s ago
+   Main PID: 10754 (java)
+      Tasks: 54 (limit: 19111)
+     Memory: 342.0M (peak: 347.9M)
+        CPU: 35.521s
+     CGroup: /system.slice/jenkins.service
+             └─10754 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080
+
+Aug 02 14:47:54 jenkins-deepa jenkins[10754]: 2025-08-02 14:47:54.666+0000 [id=42]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:47:55 jenkins-deepa jenkins[10754]: 2025-08-02 14:47:55.465+0000 [id=46]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load>
+Aug 02 14:47:56 jenkins-deepa jenkins[10754]: 2025-08-02 14:47:56.616+0000 [id=42]        WARNING        hudson.model.Slave#warnPlugin: hudso>
+Aug 02 14:47:56 jenkins-deepa jenkins[10754]: 2025-08-02 14:47:56.909+0000 [id=46]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:47:56 jenkins-deepa jenkins[10754]: 2025-08-02 14:47:56.910+0000 [id=39]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:47:57 jenkins-deepa jenkins[10754]: 2025-08-02 14:47:57.005+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:47:57 jenkins-deepa jenkins[10754]: 2025-08-02 14:47:57.030+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:47:57 jenkins-deepa jenkins[10754]: 2025-08-02 14:47:57.084+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 14:47:57 jenkins-deepa jenkins[10754]: 2025-08-02 14:47:57.222+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jen>
+Aug 02 14:47:57 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+
+deepa@jenkins-deepa:~$ sudo lsof -i :8443
+deepa@jenkins-deepa:~$ sudo -u jenkins java -DJENKINS_PORT=-1 \
+  -DJENKINS_HTTPS_PORT=8443 \
+  -DJENKINS_HTTPS_KEYSTORE=/home/deepa/jenkinsserver.jks \
+  -DJENKINS_HTTPS_KEYSTORE_PASSWORD=deepa1128 \
+  -jar /usr/share/jenkins/jenkins.war
+Error: Unable to access jarfile /usr/share/jenkins/jenkins.war
+deepa@jenkins-deepa:~$ sudo find /usr /opt /var -name jenkins.war 2>/dev/null
+/usr/share/java/jenkins.war
+deepa@jenkins-deepa:~$ sudo -u jenkins java -DJENKINS_PORT=-1 \
+  -DJENKINS_HTTPS_PORT=8443 \
+  -DJENKINS_HTTPS_KEYSTORE=/home/deepa/jenkinsserver.jks \
+  -DJENKINS_HTTPS_KEYSTORE_PASSWORD=deepa1128 \
+  -jar /usr/share/java/jenkins.war
+Running from: /usr/share/java/jenkins.war
+webroot: /var/lib/jenkins/.jenkins/war
+2025-08-02 14:54:27.646+0000 [id=1]     INFO    winstone.Logger#logInternal: Beginning extraction from war file
+2025-08-02 14:54:29.557+0000 [id=1]     WARNING o.e.j.ee9.nested.ContextHandler#setContextPath: Empty contextPath
+2025-08-02 14:54:29.666+0000 [id=1]     INFO    org.eclipse.jetty.server.Server#doStart: jetty-12.0.22; built: 2025-06-02T15:25:31.946Z; git: 335c9ab44a5591f0ea941bf350e139b8c4f5537c; jvm 21.0.8+9-Ubuntu-0ubuntu124.04.1
+2025-08-02 14:54:29.682+0000 [id=1]     INFO    org.eclipse.jetty.server.Server#doStop: Stopped oejs.Server@3b74ac8{STOPPING}[12.0.22,sto=0]
+2025-08-02 14:54:29.682+0000 [id=1]     INFO    winstone.Logger#logInternal: Jetty shutdown successfully
+java.io.IOException: Failed to start Jetty
+        at Jenkins Main ClassLoader//winstone.Launcher.<init>(Launcher.java:192)
+        at Jenkins Main ClassLoader//winstone.Launcher.main(Launcher.java:488)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at executable.Main.main(Main.java:335)
+Caused by: java.io.IOException: Failed to bind to 0.0.0.0/0.0.0.0:8080
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:349)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.ServerConnector.open(ServerConnector.java:313)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.lambda$doStart$0(Server.java:571)
+        at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+        at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+        at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+        at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+        at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+        at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+        at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+        at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+        at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+        at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.doStart(Server.java:567)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:93)
+        at Jenkins Main ClassLoader//winstone.Launcher.<init>(Launcher.java:188)
+        ... 4 more
+Caused by: java.net.BindException: Address already in use
+        at java.base/sun.nio.ch.Net.bind0(Native Method)
+        at java.base/sun.nio.ch.Net.bind(Net.java:565)
+        at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+        at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:344)
+        ... 19 more
+2025-08-02 14:54:29.685+0000 [id=1]     SEVERE  winstone.Logger#logInternal: Container startup failed
+java.net.BindException: Address already in use
+        at java.base/sun.nio.ch.Net.bind0(Native Method)
+        at java.base/sun.nio.ch.Net.bind(Net.java:565)
+        at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+        at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:344)
+Caused: java.io.IOException: Failed to bind to 0.0.0.0/0.0.0.0:8080
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:349)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.ServerConnector.open(ServerConnector.java:313)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.lambda$doStart$0(Server.java:571)
+        at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+        at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+        at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+        at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+        at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+        at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+        at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+        at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+        at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+        at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.doStart(Server.java:567)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:93)
+        at Jenkins Main ClassLoader//winstone.Launcher.<init>(Launcher.java:188)
+Caused: java.io.IOException: Failed to start Jetty
+        at Jenkins Main ClassLoader//winstone.Launcher.<init>(Launcher.java:192)
+        at Jenkins Main ClassLoader//winstone.Launcher.main(Launcher.java:488)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at executable.Main.main(Main.java:335)
+deepa@jenkins-deepa:~$ sudo lsof -i :8080
+COMMAND   PID    USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+java    10754 jenkins    9u  IPv6  63365      0t0  TCP *:http-alt (LISTEN)
+deepa@jenkins-deepa:~$ sudo -u jenkins java \
+  -DJENKINS_PORT=-1 \
+  -DJENKINS_HTTPS_PORT=8443 \
+  -DJENKINS_HTTPS_KEYSTORE=/home/deepa/jenkinsserver.jks \
+  -DJENKINS_HTTPS_KEYSTORE_PASSWORD=deepa1128 \
+  -jar /usr/share/java/jenkins.war --httpPort=-1
+Running from: /usr/share/java/jenkins.war
+webroot: /var/lib/jenkins/.jenkins/war
+2025-08-02 14:58:33.577+0000 [id=1]     INFO    winstone.Logger#logInternal: Beginning extraction from war file
+2025-08-02 14:58:33.689+0000 [id=1]     WARNING o.e.j.ee9.nested.ContextHandler#setContextPath: Empty contextPath
+2025-08-02 14:58:33.758+0000 [id=1]     INFO    org.eclipse.jetty.server.Server#doStart: jetty-12.0.22; built: 2025-06-02T15:25:31.946Z; git: 335c9ab44a5591f0ea941bf350e139b8c4f5537c; jvm 21.0.8+9-Ubuntu-0ubuntu124.04.1
+2025-08-02 14:58:34.476+0000 [id=1]     INFO    o.e.j.e.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.ee9.jsp.JettyJspServlet
+2025-08-02 14:58:34.570+0000 [id=1]     INFO    o.e.j.s.DefaultSessionIdManager#doStart: Session workerName=node0
+2025-08-02 14:58:35.254+0000 [id=1]     INFO    hudson.WebAppMain#contextInitialized: Jenkins home directory: /var/lib/jenkins/.jenkins found at: $user.home/.jenkins
+2025-08-02 14:58:35.396+0000 [id=1]     INFO    o.e.j.s.handler.ContextHandler#doStart: Started oeje9n.ContextHandler$CoreContextHandler@241a53ef{Jenkins v2.516.1,/,b=file:///var/lib/jenkins/.jenkins/war/,a=AVAILABLE,h=oeje9n.ContextHandler$CoreContextHandler$CoreToNestedHandler@344344fa{STARTED}}
+2025-08-02 14:58:35.415+0000 [id=1]     INFO    org.eclipse.jetty.server.Server#doStart: Started oejs.Server@78aab498{STARTING}[12.0.22,sto=0] @2710ms
+2025-08-02 14:58:35.417+0000 [id=34]    INFO    winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+2025-08-02 14:58:35.651+0000 [id=33]    INFO    jenkins.model.Jenkins#<init>: Starting version 2.516.1
+2025-08-02 14:58:35.792+0000 [id=42]    INFO    jenkins.InitReactorRunner$1#onAttained: Started initialization
+2025-08-02 14:58:35.809+0000 [id=47]    INFO    jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2025-08-02 14:58:37.182+0000 [id=42]    INFO    jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2025-08-02 14:58:37.189+0000 [id=42]    INFO    jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2025-08-02 14:58:37.190+0000 [id=42]    INFO    jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2025-08-02 14:58:37.446+0000 [id=41]    INFO    jenkins.InitReactorRunner$1#onAttained: System config loaded
+2025-08-02 14:58:37.448+0000 [id=46]    INFO    jenkins.InitReactorRunner$1#onAttained: System config adapted
+2025-08-02 14:58:37.449+0000 [id=44]    INFO    jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2025-08-02 14:58:37.452+0000 [id=45]    INFO    jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2025-08-02 14:58:37.509+0000 [id=61]    INFO    hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2025-08-02 14:58:38.107+0000 [id=47]    INFO    jenkins.install.SetupWizard#init:
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+51944e634e0e4d5d962c8c382eaba0e6
+
+This may also be found at: /var/lib/jenkins/.jenkins/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+2025-08-02 14:58:43.154+0000 [id=47]    INFO    jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2025-08-02 14:58:43.185+0000 [id=33]    INFO    hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
+2025-08-02 14:58:43.822+0000 [id=61]    INFO    h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2025-08-02 14:58:43.823+0000 [id=61]    INFO    hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+
+^C2025-08-02 15:00:02.921+0000 [id=35]  INFO    winstone.Logger#logInternal: JVM is terminating. Shutting down Jetty
+2025-08-02 15:00:02.922+0000 [id=35]    INFO    org.eclipse.jetty.server.Server#doStop: Stopped oejs.Server@78aab498{STOPPING}[12.0.22,sto=0]
+2025-08-02 15:00:02.927+0000 [id=35]    INFO    hudson.lifecycle.Lifecycle#onStatusUpdate: Stopping Jenkins
+2025-08-02 15:00:02.931+0000 [id=35]    INFO    jenkins.model.Jenkins$17#onAttained: Started termination
+2025-08-02 15:00:02.947+0000 [id=35]    INFO    jenkins.model.Jenkins$17#onAttained: Completed termination
+2025-08-02 15:00:02.948+0000 [id=35]    INFO    jenkins.model.Jenkins#_cleanUpDisconnectComputers: Starting node disconnection
+2025-08-02 15:00:02.957+0000 [id=35]    INFO    jenkins.model.Jenkins#_cleanUpShutdownPluginManager: Stopping plugin manager
+2025-08-02 15:00:02.958+0000 [id=35]    INFO    jenkins.model.Jenkins#_cleanUpPersistQueue: Persisting build queue
+2025-08-02 15:00:02.974+0000 [id=35]    INFO    jenkins.model.Jenkins#_cleanUpAwaitDisconnects: Waiting for node disconnection completion
+2025-08-02 15:00:02.975+0000 [id=35]    INFO    hudson.lifecycle.Lifecycle#onStatusUpdate: Jenkins stopped
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/multi-user.target.wants/jenkins.service
+deepa@jenkins-deepa:~$ sudo -u jenkins java   -DJENKINS_PORT=-1   -DJENKINS_HTTPS_PORT=8443   -DJENKINS_HTTPS_KEYSTORE=/home/deepa/jenkinsserver.jks   -DJENKINS_HTTPS_KEYSTORE_PASSWORD=deepa1128   -jar /usr/share/java/jenkins.war --httpPort=-1
+Running from: /usr/share/java/jenkins.war
+webroot: /var/lib/jenkins/.jenkins/war
+2025-08-02 15:02:29.205+0000 [id=1]     INFO    winstone.Logger#logInternal: Beginning extraction from war file
+2025-08-02 15:02:29.327+0000 [id=1]     WARNING o.e.j.ee9.nested.ContextHandler#setContextPath: Empty contextPath
+2025-08-02 15:02:29.416+0000 [id=1]     INFO    org.eclipse.jetty.server.Server#doStart: jetty-12.0.22; built: 2025-06-02T15:25:31.946Z; git: 335c9ab44a5591f0ea941bf350e139b8c4f5537c; jvm 21.0.8+9-Ubuntu-0ubuntu124.04.1
+2025-08-02 15:02:30.146+0000 [id=1]     INFO    o.e.j.e.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.ee9.jsp.JettyJspServlet
+2025-08-02 15:02:30.249+0000 [id=1]     INFO    o.e.j.s.DefaultSessionIdManager#doStart: Session workerName=node0
+2025-08-02 15:02:30.919+0000 [id=1]     INFO    hudson.WebAppMain#contextInitialized: Jenkins home directory: /var/lib/jenkins/.jenkins found at: $user.home/.jenkins
+2025-08-02 15:02:31.071+0000 [id=1]     INFO    o.e.j.s.handler.ContextHandler#doStart: Started oeje9n.ContextHandler$CoreContextHandler@241a53ef{Jenkins v2.516.1,/,b=file:///var/lib/jenkins/.jenkins/war/,a=AVAILABLE,h=oeje9n.ContextHandler$CoreContextHandler$CoreToNestedHandler@344344fa{STARTED}}
+2025-08-02 15:02:31.096+0000 [id=1]     INFO    org.eclipse.jetty.server.Server#doStart: Started oejs.Server@78aab498{STARTING}[12.0.22,sto=0] @2787ms
+2025-08-02 15:02:31.098+0000 [id=34]    INFO    winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+2025-08-02 15:02:31.302+0000 [id=33]    INFO    jenkins.model.Jenkins#<init>: Starting version 2.516.1
+2025-08-02 15:02:31.434+0000 [id=41]    INFO    jenkins.InitReactorRunner$1#onAttained: Started initialization
+2025-08-02 15:02:31.551+0000 [id=46]    INFO    jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2025-08-02 15:02:32.916+0000 [id=42]    INFO    jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2025-08-02 15:02:32.924+0000 [id=42]    INFO    jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2025-08-02 15:02:32.929+0000 [id=45]    INFO    jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2025-08-02 15:02:33.347+0000 [id=39]    INFO    jenkins.InitReactorRunner$1#onAttained: System config loaded
+2025-08-02 15:02:33.348+0000 [id=40]    INFO    jenkins.InitReactorRunner$1#onAttained: System config adapted
+2025-08-02 15:02:33.348+0000 [id=44]    INFO    jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2025-08-02 15:02:33.351+0000 [id=46]    INFO    jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2025-08-02 15:02:33.455+0000 [id=45]    INFO    jenkins.install.SetupWizard#init:
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+51944e634e0e4d5d962c8c382eaba0e6
+
+This may also be found at: /var/lib/jenkins/.jenkins/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+^C2025-08-02 15:02:36.375+0000 [id=35]  INFO    winstone.Logger#logInternal: JVM is terminating. Shutting down Jetty
+2025-08-02 15:02:36.377+0000 [id=35]    INFO    org.eclipse.jetty.server.Server#doStop: Stopped oejs.Server@78aab498{STOPPING}[12.0.22,sto=0]
+2025-08-02 15:02:36.400+0000 [id=35]    INFO    hudson.lifecycle.Lifecycle#onStatusUpdate: Stopping Jenkins
+2025-08-02 15:02:36.418+0000 [id=35]    INFO    jenkins.model.Jenkins$17#onAttained: Started termination
+2025-08-02 15:02:36.481+0000 [id=35]    INFO    jenkins.model.Jenkins$17#onAttained: Completed termination
+2025-08-02 15:02:36.482+0000 [id=35]    INFO    jenkins.model.Jenkins#_cleanUpDisconnectComputers: Starting node disconnection
+2025-08-02 15:02:36.495+0000 [id=35]    INFO    jenkins.model.Jenkins#_cleanUpShutdownPluginManager: Stopping plugin manager
+2025-08-02 15:02:36.495+0000 [id=35]    INFO    jenkins.model.Jenkins#_cleanUpPersistQueue: Persisting build queue
+2025-08-02 15:02:36.515+0000 [id=35]    INFO    jenkins.model.Jenkins#_cleanUpAwaitDisconnects: Waiting for node disconnection completion
+2025-08-02 15:02:36.515+0000 [id=35]    INFO    hudson.lifecycle.Lifecycle#onStatusUpdate: Jenkins stopped
+2025-08-02 15:02:36.516+0000 [id=35]    INFO    hudson.WebAppMain#contextDestroyed: Shutting down a Jenkins instance that was still starting up
+java.lang.Throwable: reason
+        at hudson.WebAppMain.contextDestroyed(WebAppMain.java:419)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.callContextDestroyed(ContextHandler.java:914)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletContextHandler.callContextDestroyed(ServletContextHandler.java:608)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.contextDestroyed(ContextHandler.java:871)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler.doStop(ServletHandler.java:307)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:132)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:202)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.AbstractHandler.doStop(AbstractHandler.java:88)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.security.SecurityHandler.doStop(SecurityHandler.java:414)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.security.ConstraintSecurityHandler.doStop(ConstraintSecurityHandler.java:413)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:132)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:202)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.AbstractHandler.doStop(AbstractHandler.java:88)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:132)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:202)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.AbstractHandler.doStop(AbstractHandler.java:88)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.stopContext(ContextHandler.java:894)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletContextHandler.stopContext(ServletContextHandler.java:371)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.webapp.WebAppContext.stopWebapp(WebAppContext.java:1369)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.webapp.WebAppContext.stopContext(WebAppContext.java:1328)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doStopInContext(ContextHandler.java:745)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.ContextHandler$ScopedContext.call(ContextHandler.java:1457)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doStop(ContextHandler.java:738)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletContextHandler.doStop(ServletContextHandler.java:284)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:132)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:202)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Handler$Abstract.doStop(Handler.java:499)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.ContextHandler.lambda$doStop$1(ContextHandler.java:810)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.ContextHandler$ScopedContext.call(ContextHandler.java:1463)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.ContextHandler.doStop(ContextHandler.java:810)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler$CoreContextHandler.doStop(ContextHandler.java:2861)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:132)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:202)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Handler$Abstract.doStop(Handler.java:499)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.gzip.GzipHandler.doStop(GzipHandler.java:138)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:132)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:202)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Handler$Abstract.doStop(Handler.java:499)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.doStop(Server.java:690)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:132)
+        at Jenkins Main ClassLoader//winstone.Launcher.shutdown(Launcher.java:436)
+        at Jenkins Main ClassLoader//winstone.ShutdownHook.run(ShutdownHook.java:28)
+2025-08-02 15:02:36.536+0000 [id=33]    SEVERE  h.i.i.InstallUncaughtExceptionHandler$DefaultUncaughtExceptionHandler#uncaughtException: A thread (Jenkins initialization thread/33) died unexpectedly due to an uncaught exception. This may leave your server corrupted and usually indicates a software bug.
+java.lang.ClassNotFoundException: hudson.util.HudsonFailedToLoad
+        at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.webapp.WebAppClassLoader.foundClass(WebAppClassLoader.java:556)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.webapp.WebAppClassLoader.loadAsResource(WebAppClassLoader.java:529)
+        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:465)
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+Caused: java.lang.NoClassDefFoundError: hudson/util/HudsonFailedToLoad
+        at hudson.WebAppMain$3.run(WebAppMain.java:277)
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reexec
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.service" for details.
+deepa@jenkins-deepa:~$ sudo mkdir -p /etc/systemd/system/jenkins.service.d
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/jenkins.service.d/https.conf
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reexec
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with e                                                                      rror code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.serv                                                                      ice" for details.
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins.service
+Job for jenkins.service failed because the control process exited with e                                                                      rror code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.serv                                                                      ice" for details.
+deepa@jenkins-deepa:~$ sudo netstat -tuln | grep 8443
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins
+× jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; >
+    Drop-In: /etc/systemd/system/jenkins.service.d
+             └─https.conf
+     Active: failed (Result: exit-code) since Sat 2025-08-02 15:03:57 U>
+   Duration: 15min 53.519s
+   Main PID: 11464 (code=exited, status=1/FAILURE)
+        CPU: 3.304s
+
+Aug 02 15:03:57 jenkins-deepa systemd[1]: jenkins.service: Start reques>
+Aug 02 15:03:57 jenkins-deepa systemd[1]: jenkins.service: Failed with >
+Aug 02 15:03:57 jenkins-deepa systemd[1]: Failed to start jenkins.servi>
+Aug 02 15:03:57 jenkins-deepa systemd[1]: jenkins.service: Consumed 3.3>
+Aug 02 15:07:09 jenkins-deepa systemd[1]: jenkins.service: Start reques>
+Aug 02 15:07:09 jenkins-deepa systemd[1]: jenkins.service: Failed with >
+Aug 02 15:07:09 jenkins-deepa systemd[1]: Failed to start jenkins.servi>
+Aug 02 15:07:24 jenkins-deepa systemd[1]: jenkins.service: Start reques>
+Aug 02 15:07:24 jenkins-deepa systemd[1]: jenkins.service: Failed with >
+Aug 02 15:07:24 jenkins-deepa systemd[1]: Failed to start jenkins.servi>
+lines 1-19/19 (END)...skipping...
+× jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+    Drop-In: /etc/systemd/system/jenkins.service.d
+             └─https.conf
+     Active: failed (Result: exit-code) since Sat 2025-08-02 15:03:57 UTC; 4min 47s ago
+   Duration: 15min 53.519s
+   Main PID: 11464 (code=exited, status=1/FAILURE)
+        CPU: 3.304s
+
+Aug 02 15:03:57 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 15:03:57 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+Aug 02 15:03:57 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 15:03:57 jenkins-deepa systemd[1]: jenkins.service: Consumed 3.304s CPU time.
+Aug 02 15:07:09 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 15:07:09 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+Aug 02 15:07:09 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+Aug 02 15:07:24 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 15:07:24 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+Aug 02 15:07:24 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+deepa@jenkins-deepa:~$ sudo journalctl -xeu jenkins.service
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ A start job for unit jenkins.service has finished with a failure.
+░░
+░░ The job identifier is 17282 and the job result is failed.
+Aug 02 15:03:57 jenkins-deepa systemd[1]: jenkins.service: Consumed 3.304s CPU time.
+░░ Subject: Resources consumed by unit runtime
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service completed and consumed the indicated resources.
+Aug 02 15:07:09 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 15:07:09 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+░░ Subject: Unit failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service has entered the 'failed' state with result 'exit-code'.
+Aug 02 15:07:09 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+░░ Subject: A start job for unit jenkins.service has failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ A start job for unit jenkins.service has finished with a failure.
+░░
+░░ The job identifier is 17526 and the job result is failed.
+Aug 02 15:07:24 jenkins-deepa systemd[1]: jenkins.service: Start request repeated too quickly.
+Aug 02 15:07:24 jenkins-deepa systemd[1]: jenkins.service: Failed with result 'exit-code'.
+░░ Subject: Unit failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ The unit jenkins.service has entered the 'failed' state with result 'exit-code'.
+Aug 02 15:07:24 jenkins-deepa systemd[1]: Failed to start jenkins.service - Jenkins Continuous Integration Server.
+░░ Subject: A start job for unit jenkins.service has failed
+░░ Defined-By: systemd
+░░ Support: http://www.ubuntu.com/support
+░░
+░░ A start job for unit jenkins.service has finished with a failure.
+░░
+░░ The job identifier is 17648 and the job result is failed.
+
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/jenkins.service.d/https.conf
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reexec
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xeu jenkins.service" for details.
+deepa@jenkins-deepa:~$ sudo chmod 640 /home/deepa/jenkinsserver.jks
+deepa@jenkins-deepa:~$ sudo mkdir -p /var/lib/jenkins/ssl
+deepa@jenkins-deepa:~$ sudo mv /home/deepa/jenkinsserver.jks /var/lib/jenkins/ssl/
+deepa@jenkins-deepa:~$ sudo chown jenkins:jenkins /var/lib/jenkins/ssl/jenkinsserver.jks
+deepa@jenkins-deepa:~$ sudo vi /etc/systemd/system/jenkins.service.d/https.conf
+deepa@jenkins-deepa:~$ sudo su -s /bin/bash jenkins
+export JENKINS_PORT=-1
+export JENKINS_HTTPS_PORT=8443
+export JENKINS_HTTPS_KEYSTORE=/var/lib/jenkins/ssl/jenkinsserver.jks
+export JENKINS_HTTPS_KEYSTORE_PASSWORD=deepa1128
+java -jar /usr/share/jenkins/jenkins.war
+jenkins@jenkins-deepa:/home/deepa$ sudo systemctl edit jenkins
+[sudo] password for jenkins:
+Sorry, try again.
+[sudo] password for jenkins:
+Sorry, try again.
+[sudo] password for jenkins:
+sudo: 3 incorrect password attempts
+jenkins@jenkins-deepa:/home/deepa$ exit
+exit
+Error: Unable to access jarfile /usr/share/jenkins/jenkins.war
+deepa@jenkins-deepa:~$ sudo systemctl edit jenkins
+deepa@jenkins-deepa:~$ sudo systemctl edit jenkins
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reexec
+deepa@jenkins-deepa:~$ sudo systemctl daemon-reload
+deepa@jenkins-deepa:~$ sudo systemctl reset-failed jenkins
+deepa@jenkins-deepa:~$ sudo systemctl restart jenkins
+deepa@jenkins-deepa:~$ sudo systemctl status jenkins
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
+    Drop-In: /etc/systemd/system/jenkins.service.d
+             └─https.conf
+     Active: active (running) since Sat 2025-08-02 15:23:26 UTC; 6s ago
+   Main PID: 12223 (java)
+      Tasks: 54 (limit: 19111)
+     Memory: 358.7M (peak: 366.2M)
+        CPU: 35.652s
+     CGroup: /system.slice/jenkins.service
+             └─12223 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=-1 ->
+
+Aug 02 15:23:23 jenkins-deepa jenkins[12223]: 2025-08-02 15:23:23.683+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 15:23:24 jenkins-deepa jenkins[12223]: 2025-08-02 15:23:24.401+0000 [id=39]        INFO        h.p.b.g.GlobalTimeOutConfiguration#load>
+Aug 02 15:23:25 jenkins-deepa jenkins[12223]: 2025-08-02 15:23:25.620+0000 [id=43]        WARNING        hudson.model.Slave#warnPlugin: hudso>
+Aug 02 15:23:25 jenkins-deepa jenkins[12223]: 2025-08-02 15:23:25.890+0000 [id=43]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 15:23:25 jenkins-deepa jenkins[12223]: 2025-08-02 15:23:25.891+0000 [id=41]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 15:23:25 jenkins-deepa jenkins[12223]: 2025-08-02 15:23:25.966+0000 [id=45]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 15:23:25 jenkins-deepa jenkins[12223]: 2025-08-02 15:23:25.992+0000 [id=40]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 15:23:26 jenkins-deepa jenkins[12223]: 2025-08-02 15:23:26.041+0000 [id=42]        INFO        jenkins.InitReactorRunner$1#onAttained:>
+Aug 02 15:23:26 jenkins-deepa jenkins[12223]: 2025-08-02 15:23:26.201+0000 [id=33]        INFO        hudson.lifecycle.Lifecycle#onReady: Jen>
+Aug 02 15:23:26 jenkins-deepa systemd[1]: Started jenkins.service - Jenkins Continuous Integration Server.
+
+deepa@jenkins-deepa:~$
