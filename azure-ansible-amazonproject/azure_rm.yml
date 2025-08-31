@@ -1,0 +1,578 @@
+Requesting a Cloud Shell.Succeeded. 
+Connecting terminal...
+
+Welcome to Azure Cloud Shell
+
+Type "az" to use Azure CLI
+Type "help" to learn about Cloud Shell
+
+Subscription used to launch your CloudShell 65c37065-d316-4ed3-a720-cc0c3872ac3a is not registered to Microsoft.CloudShell Namespace. Please follow these instructions "https://aka.ms/RegisterCloudShell" to register. In future, unregistered subscriptions will have restricted access to CloudShell service.
+
+Your Cloud Shell session will be ephemeral so no files or system changes will persist beyond your current session.
+deepa [ ~ ]$ az login
+Cloud Shell is automatically authenticated under the initial account signed-in with. Run 'az login' only if you need to use a different account
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code SAXTSX9HB to authenticate.
+
+Retrieving tenants and subscriptions for the selection...
+The following tenants don't contain accessible subscriptions. Use `az login --allow-no-subscriptions` to have tenant level access.
+2eccd4ee-d0c0-4d69-8eca-c5b5b9bc3111 'Default Directory'
+
+[Tenant and subscription selection]
+
+No     Subscription name     Subscription ID                       Tenant
+-----  --------------------  ------------------------------------  -----------------
+[1] *  Azure subscription 1  65c37065-d316-4ed3-a720-cc0c3872ac3a  Default Directory
+[2]    Azure subscription 1  34a1c0d5-ab81-462c-89db-795e1572cd70  Default Directory
+[3]    Azure subscription 1  2cd6d428-316d-4f0e-8101-006affa7efc1  Default Directory
+
+The default is marked with an *; the default tenant is 'Default Directory' and subscription is 'Azure subscription 1' (65c37065-d316-4ed3-a720-cc0c3872ac3a).
+
+Select a subscription and tenant (Type a number or Enter for no changes): 
+
+Tenant: Default Directory
+Subscription: Azure subscription 1 (65c37065-d316-4ed3-a720-cc0c3872ac3a)
+
+[Announcements]
+With the new Azure CLI login experience, you can select the subscription you want to use more easily. Learn more about it and its configuration at https://go.microsoft.com/fwlink/?linkid=2271236
+
+If you encounter any problem, please open an issue at https://aka.ms/azclibug
+
+[Warning] The login output has been updated. Please be aware that it no longer displays the full list of available subscriptions by default.
+
+deepa [ ~ ]$ mkdir ansible
+deepa [ ~ ]$ cd ansible
+deepa [ ~/ansible ]$ vi azure_rm.yml
+deepa [ ~/ansible ]$ ls
+azure_rm.yml
+deepa [ ~/ansible ]$ ls
+azure_rm.yml
+deepa [ ~/ansible ]$ ls
+azure_rm.yml
+deepa [ ~/ansible ]$ ls ~
+ansible  ansible1_key.pem
+deepa [ ~/ansible ]$ mv ~/your_key.pem ~/ansible/
+cd ~/ansible
+ls
+mv: cannot stat '/home/deepa/your_key.pem': No such file or directory
+azure_rm.yml
+deepa [ ~/ansible ]$ ls
+azure_rm.yml
+deepa [ ~/ansible ]$ mv ~/ansible1_key.pem ~/ansible/
+deepa [ ~/ansible ]$ ls
+ansible1_key.pem  azure_rm.yml
+deepa [ ~/ansible ]$ chmod 600 ~/ansible/ansible1_key.pem
+deepa [ ~/ansible ]$ ansible all -i azure_rm.yml -m ping -u azureuser --private-key ~/ansible/ansible1_key.pem
+[WARNING]: Found variable using reserved name: tags
+[WARNING]: Found variable using reserved name: name
+The authenticity of host '52.233.206.187 (52.233.206.187)' can't be established.
+ED25519 key fingerprint is SHA256:2OGhsbgfFzb80PzRFE5Q85vo/9g0dZekY6BbJgEfu+0.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? The authenticity of host '108.143.78.57 (108.143.78.57)' can't be established.
+ED25519 key fingerprint is SHA256:QFcuytwhtHXAl7T6bEbJmHmlBY69ACVkeVfP7yfSts0.
+This key is not known by any other names.
+The authenticity of host '135.236.1.18 (135.236.1.18)' can't be established.
+ED25519 key fingerprint is SHA256:UEfv1pzudV2Yp3enHhu77qHxYdBgwcK3J32UvLS+5ZE.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+[WARNING]: Platform linux on host ansible1_e9bb is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information.
+ansible1_e9bb | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+^C [ERROR]: User interrupted execution
+deepa [ ~/ansible ]$ ansible all -i azure_rm.yml -m ping -u azureuser --private-key ~/ansible/ansible1_key.pem
+[WARNING]: Found variable using reserved name: tags
+[WARNING]: Found variable using reserved name: name
+The authenticity of host '108.143.78.57 (108.143.78.57)' can't be established.
+ED25519 key fingerprint is SHA256:QFcuytwhtHXAl7T6bEbJmHmlBY69ACVkeVfP7yfSts0.
+This key is not known by any other names.
+The authenticity of host '135.236.1.18 (135.236.1.18)' can't be established.
+ED25519 key fingerprint is SHA256:UEfv1pzudV2Yp3enHhu77qHxYdBgwcK3J32UvLS+5ZE.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+[WARNING]: Platform linux on host ansible1_e9bb is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information.
+ansible1_e9bb | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[WARNING]: Platform linux on host ansible2_8386 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information.
+ansible2_8386 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+^C [ERROR]: User interrupted execution
+deepa [ ~/ansible ]$ az vm list -d -o table
+Name      ResourceGroup    PowerState      PublicIps       Fqdns    Location
+--------  ---------------  --------------  --------------  -------  -----------
+ansible4  RG               VM deallocated  128.251.17.203           northeurope
+ansible5  RG               VM deallocated  20.238.88.99             northeurope
+ansible1  RG               VM running      52.233.206.187           westeurope
+ansible2  RG               VM running      108.143.78.57            westeurope
+ansible3  RG               VM running      135.236.1.18             westeurope
+deepa [ ~/ansible ]$ ansible-inventory -i azure_rm.yml --list
+[WARNING]: Found variable using reserved name: tags
+[WARNING]: Found variable using reserved name: name
+{
+    "_meta": {
+        "hostvars": {
+            "ansible1_e9bb": {
+                "ansible_host": "52.233.206.187",
+                "availability_zone": null,
+                "computer_name": "ansible1",
+                "creation_time": "2025-08-29T05:29:26.09579+00:00",
+                "data_disks": [],
+                "default_inventory_hostname": "ansible1_e9bb",
+                "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/RG/providers/Microsoft.Compute/virtualMachines/ansible1",
+                "image": {
+                    "offer": "ubuntu-24_04-lts",
+                    "publisher": "canonical",
+                    "sku": "server",
+                    "version": "latest"
+                },
+                "license_type": "Unknown",
+                "location": "westeurope",
+                "mac_address": [
+                    "7C-ED-8D-5D-F9-97"
+                ],
+                "name": "ansible1",
+                "network_interface": [
+                    "ansible1953"
+                ],
+                "network_interface_id": [
+                    "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/ansible1953"
+                ],
+                "network_interface_properties": [
+                    {
+                        "etag": "W/\"5d811d75-444c-4339-a79d-4916809456ca\"",
+                        "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/ansible1953",
+                        "kind": "Regular",
+                        "location": "westeurope",
+                        "name": "ansible1953",
+                        "properties": {
+                            "allowPort25Out": false,
+                            "auxiliaryMode": "None",
+                            "auxiliarySku": "None",
+                            "defaultOutboundConnectivityEnabled": false,
+                            "disableTcpStateTracking": false,
+                            "dnsSettings": {
+                                "appliedDnsServers": [],
+                                "dnsServers": [],
+                                "internalDomainNameSuffix": "s1gmpcr51zvelmrldkhawhnvia.ax.internal.cloudapp.net"
+                            },
+                            "enableAcceleratedNetworking": false,
+                            "enableIPForwarding": false,
+                            "hostedWorkloads": [],
+                            "ipConfigurations": [
+                                {
+                                    "etag": "W/\"5d811d75-444c-4339-a79d-4916809456ca\"",
+                                    "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/ansible1953/ipConfigurations/ipconfig1",
+                                    "name": "ipconfig1",
+                                    "properties": {
+                                        "primary": true,
+                                        "privateIPAddress": "10.0.0.4",
+                                        "privateIPAddressVersion": "IPv4",
+                                        "privateIPAllocationMethod": "Dynamic",
+                                        "provisioningState": "Succeeded",
+                                        "publicIPAddress": {
+                                            "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/publicIPAddresses/ansible1-ip",
+                                            "properties": {
+                                                "deleteOption": "Delete"
+                                            }
+                                        },
+                                        "subnet": {
+                                            "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/ansible1-vnet/subnets/default"
+                                        }
+                                    },
+                                    "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+                                }
+                            ],
+                            "macAddress": "7C-ED-8D-5D-F9-97",
+                            "networkSecurityGroup": {
+                                "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/ansible1-nsg"
+                            },
+                            "nicType": "Standard",
+                            "primary": true,
+                            "provisioningState": "Succeeded",
+                            "resourceGuid": "c74f4157-0076-4a09-9087-7ed36b57e665",
+                            "tapConfigurations": [],
+                            "virtualMachine": {
+                                "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/ansible1"
+                            },
+                            "vnetEncryptionSupported": false
+                        },
+                        "type": "Microsoft.Network/networkInterfaces"
+                    }
+                ],
+                "os_disk": {
+                    "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/RG/providers/Microsoft.Compute/disks/ansible1_disk1_9fcad0053df1482aa04daa44acb5464d",
+                    "name": "ansible1_disk1_9fcad0053df1482aa04daa44acb5464d",
+                    "operating_system_type": "linux"
+                },
+                "os_profile": {
+                    "system": "linux"
+                },
+                "plan": null,
+                "powerstate": "running",
+                "private_ipv4_addresses": [
+                    "10.0.0.4"
+                ],
+                "provisioning_state": "succeeded",
+                "public_dns_hostnames": [],
+                "public_ip_address": [
+                    {
+                        "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/publicIPAddresses/ansible1-ip",
+                        "ipv4_address": "52.233.206.187",
+                        "name": "ansible1-ip"
+                    }
+                ],
+                "public_ipv4_address": [
+                    "52.233.206.187"
+                ],
+                "resource_group": "rg",
+                "resource_type": "Microsoft.Compute/virtualMachines",
+                "security_group": [
+                    "ansible1-nsg"
+                ],
+                "security_group_id": [
+                    "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/ansible1-nsg"
+                ],
+                "subnet": [
+                    {
+                        "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/ansible1-vnet/subnets/default"
+                    }
+                ],
+                "tags": {},
+                "virtual_machine_size": "Standard_B1s",
+                "vmid": "2d91a0d7-56ba-4c2c-ac87-ef531216a179",
+                "vmss": {}
+            },
+            "ansible2_8386": {
+                "ansible_host": "108.143.78.57",
+                "availability_zone": null,
+                "computer_name": "ansible2",
+                "creation_time": "2025-08-31T02:43:08.4637771+00:00",
+                "data_disks": [],
+                "default_inventory_hostname": "ansible2_8386",
+                "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/RG/providers/Microsoft.Compute/virtualMachines/ansible2",
+                "image": {
+                    "offer": "ubuntu-24_04-lts",
+                    "publisher": "canonical",
+                    "sku": "server",
+                    "version": "latest"
+                },
+                "license_type": "Unknown",
+                "location": "westeurope",
+                "mac_address": [
+                    "7C-1E-52-61-CB-70"
+                ],
+                "name": "ansible2",
+                "network_interface": [
+                    "ansible2659"
+                ],
+                "network_interface_id": [
+                    "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/ansible2659"
+                ],
+                "network_interface_properties": [
+                    {
+                        "etag": "W/\"bac74396-a9a1-4fce-b398-7e7d071fd1a1\"",
+                        "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/ansible2659",
+                        "kind": "Regular",
+                        "location": "westeurope",
+                        "name": "ansible2659",
+                        "properties": {
+                            "allowPort25Out": false,
+                            "auxiliaryMode": "None",
+                            "auxiliarySku": "None",
+                            "defaultOutboundConnectivityEnabled": false,
+                            "disableTcpStateTracking": false,
+                            "dnsSettings": {
+                                "appliedDnsServers": [],
+                                "dnsServers": [],
+                                "internalDomainNameSuffix": "ovrzle54smtufbrhljmzoybgbc.ax.internal.cloudapp.net"
+                            },
+                            "enableAcceleratedNetworking": false,
+                            "enableIPForwarding": false,
+                            "hostedWorkloads": [],
+                            "ipConfigurations": [
+                                {
+                                    "etag": "W/\"bac74396-a9a1-4fce-b398-7e7d071fd1a1\"",
+                                    "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/ansible2659/ipConfigurations/ipconfig1",
+                                    "name": "ipconfig1",
+                                    "properties": {
+                                        "primary": true,
+                                        "privateIPAddress": "10.1.0.4",
+                                        "privateIPAddressVersion": "IPv4",
+                                        "privateIPAllocationMethod": "Dynamic",
+                                        "provisioningState": "Succeeded",
+                                        "publicIPAddress": {
+                                            "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/publicIPAddresses/ansible2-ip",
+                                            "properties": {
+                                                "deleteOption": "Delete"
+                                            }
+                                        },
+                                        "subnet": {
+                                            "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/ansible2-vnet/subnets/default"
+                                        }
+                                    },
+                                    "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+                                }
+                            ],
+                            "macAddress": "7C-1E-52-61-CB-70",
+                            "networkSecurityGroup": {
+                                "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/ansible2nsg922"
+                            },
+                            "nicType": "Standard",
+                            "primary": true,
+                            "provisioningState": "Succeeded",
+                            "resourceGuid": "2f3e2957-2bd0-425f-b764-71b8fa4a8aa6",
+                            "tapConfigurations": [],
+                            "virtualMachine": {
+                                "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/ansible2"
+                            },
+                            "vnetEncryptionSupported": false
+                        },
+                        "type": "Microsoft.Network/networkInterfaces"
+                    }
+                ],
+                "os_disk": {
+                    "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/RG/providers/Microsoft.Compute/disks/ansible2_disk1_06dcdf4a25dd457fa893663b0e874287",
+                    "name": "ansible2_disk1_06dcdf4a25dd457fa893663b0e874287",
+                    "operating_system_type": "linux"
+                },
+                "os_profile": {
+                    "system": "linux"
+                },
+                "plan": null,
+                "powerstate": "running",
+                "private_ipv4_addresses": [
+                    "10.1.0.4"
+                ],
+                "provisioning_state": "succeeded",
+                "public_dns_hostnames": [],
+                "public_ip_address": [
+                    {
+                        "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/publicIPAddresses/ansible2-ip",
+                        "ipv4_address": "108.143.78.57",
+                        "name": "ansible2-ip"
+                    }
+                ],
+                "public_ipv4_address": [
+                    "108.143.78.57"
+                ],
+                "resource_group": "rg",
+                "resource_type": "Microsoft.Compute/virtualMachines",
+                "security_group": [
+                    "ansible2nsg922"
+                ],
+                "security_group_id": [
+                    "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/ansible2nsg922"
+                ],
+                "subnet": [
+                    {
+                        "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/ansible2-vnet/subnets/default"
+                    }
+                ],
+                "tags": {},
+                "virtual_machine_size": "Standard_B1s",
+                "vmid": "552b16b4-7221-4b99-a958-0cb8bd24412f",
+                "vmss": {}
+            },
+            "ansible3_7e9f": {
+                "ansible_host": "135.236.1.18",
+                "availability_zone": null,
+                "computer_name": "ansible3",
+                "creation_time": "2025-08-31T02:40:32.522897+00:00",
+                "data_disks": [],
+                "default_inventory_hostname": "ansible3_7e9f",
+                "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/RG/providers/Microsoft.Compute/virtualMachines/ansible3",
+                "image": {
+                    "offer": "ubuntu-24_04-lts",
+                    "publisher": "canonical",
+                    "sku": "server",
+                    "version": "latest"
+                },
+                "license_type": "Unknown",
+                "location": "westeurope",
+                "mac_address": [
+                    "7C-ED-8D-5A-C4-03"
+                ],
+                "name": "ansible3",
+                "network_interface": [
+                    "ansible343"
+                ],
+                "network_interface_id": [
+                    "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/ansible343"
+                ],
+                "network_interface_properties": [
+                    {
+                        "etag": "W/\"0100c1ac-0dbf-4165-bb66-01bc4a54d2c0\"",
+                        "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/ansible343",
+                        "kind": "Regular",
+                        "location": "westeurope",
+                        "name": "ansible343",
+                        "properties": {
+                            "allowPort25Out": false,
+                            "auxiliaryMode": "None",
+                            "auxiliarySku": "None",
+                            "defaultOutboundConnectivityEnabled": false,
+                            "disableTcpStateTracking": false,
+                            "dnsSettings": {
+                                "appliedDnsServers": [],
+                                "dnsServers": [],
+                                "internalDomainNameSuffix": "wvch2hln1exenpabstvzvuekmf.ax.internal.cloudapp.net"
+                            },
+                            "enableAcceleratedNetworking": false,
+                            "enableIPForwarding": false,
+                            "hostedWorkloads": [],
+                            "ipConfigurations": [
+                                {
+                                    "etag": "W/\"0100c1ac-0dbf-4165-bb66-01bc4a54d2c0\"",
+                                    "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkInterfaces/ansible343/ipConfigurations/ipconfig1",
+                                    "name": "ipconfig1",
+                                    "properties": {
+                                        "primary": true,
+                                        "privateIPAddress": "10.3.0.4",
+                                        "privateIPAddressVersion": "IPv4",
+                                        "privateIPAllocationMethod": "Dynamic",
+                                        "provisioningState": "Succeeded",
+                                        "publicIPAddress": {
+                                            "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/publicIPAddresses/ansible3-ip",
+                                            "properties": {
+                                                "deleteOption": "Delete"
+                                            }
+                                        },
+                                        "subnet": {
+                                            "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/ansible3-vnet/subnets/a3s1"
+                                        }
+                                    },
+                                    "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+                                }
+                            ],
+                            "macAddress": "7C-ED-8D-5A-C4-03",
+                            "networkSecurityGroup": {
+                                "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/ansible3-nsg"
+                            },
+                            "nicType": "Standard",
+                            "primary": true,
+                            "provisioningState": "Succeeded",
+                            "resourceGuid": "ae320212-b760-49ac-a47e-ada8885850b3",
+                            "tapConfigurations": [],
+                            "virtualMachine": {
+                                "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/ansible3"
+                            },
+                            "vnetEncryptionSupported": false
+                        },
+                        "type": "Microsoft.Network/networkInterfaces"
+                    }
+                ],
+                "os_disk": {
+                    "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/RG/providers/Microsoft.Compute/disks/ansible3_disk1_21e11dc0ab99421a8ef2770272c98a5a",
+                    "name": "ansible3_disk1_21e11dc0ab99421a8ef2770272c98a5a",
+                    "operating_system_type": "linux"
+                },
+                "os_profile": {
+                    "system": "linux"
+                },
+                "plan": null,
+                "powerstate": "running",
+                "private_ipv4_addresses": [
+                    "10.3.0.4"
+                ],
+                "provisioning_state": "succeeded",
+                "public_dns_hostnames": [],
+                "public_ip_address": [
+                    {
+                        "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/publicIPAddresses/ansible3-ip",
+                        "ipv4_address": "135.236.1.18",
+                        "name": "ansible3-ip"
+                    }
+                ],
+                "public_ipv4_address": [
+                    "135.236.1.18"
+                ],
+                "resource_group": "rg",
+                "resource_type": "Microsoft.Compute/virtualMachines",
+                "security_group": [
+                    "ansible3-nsg"
+                ],
+                "security_group_id": [
+                    "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/ansible3-nsg"
+                ],
+                "subnet": [
+                    {
+                        "id": "/subscriptions/65c37065-d316-4ed3-a720-cc0c3872ac3a/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/ansible3-vnet/subnets/a3s1"
+                    }
+                ],
+                "tags": {},
+                "virtual_machine_size": "Standard_B1s",
+                "vmid": "6c6c5948-2fa2-4518-b06c-337c9dec549d",
+                "vmss": {}
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "ungrouped"
+        ]
+    },
+    "ungrouped": {
+        "hosts": [
+            "ansible1_e9bb",
+            "ansible2_8386",
+            "ansible3_7e9f"
+        ]
+    }
+}
+deepa [ ~/ansible ]$ ansible all -i azure_rm.yml -m ping -u azureuser --private-key ~/ansible/ansible1_key.pem
+[WARNING]: Found variable using reserved name: tags
+[WARNING]: Found variable using reserved name: name
+The authenticity of host '135.236.1.18 (135.236.1.18)' can't be established.
+ED25519 key fingerprint is SHA256:UEfv1pzudV2Yp3enHhu77qHxYdBgwcK3J32UvLS+5ZE.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+[WARNING]: Platform linux on host ansible1_e9bb is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information.
+ansible1_e9bb | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[WARNING]: Platform linux on host ansible2_8386 is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information.
+ansible2_8386 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[WARNING]: Platform linux on host ansible3_7e9f is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information.
+ansible3_7e9f | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.12"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+deepa [ ~/ansible ]$ ls
+ansible1_key.pem  azure_rm.yml
+deepa [ ~/ansible ]$ cat azure_rm.yml
+plugin: azure.azcollection.azure_rm
+auth_source: cli
+subscription_id: "65c37065-d316-4ed3-a720-cc0c3872ac3a"
+
